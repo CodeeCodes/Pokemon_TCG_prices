@@ -25,30 +25,35 @@ export default function Multi_sets() {
         console.error(error);
       });
   };
-  useEffect(() => {
-    set_call();
-  }, [getSets]);
 
-  console.log(set);
+  // console.log(set[0]);
 
-  let show_set = () => {
-    if (set.length > 0) {
-      show_set = set.map(function (set) {
-        console.log(set);
-        return (
-          <div className="set_returned_div">
-            <h3 className="set_returned_name">{set.name}</h3>
-          </div>
-        );
-      });
-    }
-  };
+  let show_set;
+  if (set.length > 0) {
+    show_set = set[0].map(function (set) {
+      return (
+        <div className="set_returned_div" key={set.setId}>
+          <h3 className="set_returned_name">{set.name}</h3>
+          <h4 className="set_returned_series">{set.series}</h4>
+          <h5 className="set_returned_series">{set.set}</h5>
+        </div>
+      );
+    });
+  }
+
+  useEffect(
+    () => {
+      set_call();
+    },
+    [getSets],
+    1000
+  );
+
   return (
     <div className="set_card">
       <h2 className="set_card_heading">Pokemon Sets</h2>
-      <button className="set_card_button" onClick={show_set}>
-        GET POKEMON
-      </button>
+      <button className="set_card_button">GET POKEMON</button>
+      <div className="set_list"> {show_set}</div>
     </div>
   );
 }
