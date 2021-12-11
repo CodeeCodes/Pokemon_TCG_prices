@@ -30,32 +30,56 @@ export default function Multi_cards() {
       });
   };
 
-  // console.log(set[0]);
+  console.log(cards[0]);
 
   let show_cards;
   if (cards.length > 0) {
     show_cards = cards[0].map(function (card) {
+      // let price = card["highSoldPrice"].amountInMinorUnits;
+      // if (price != null) {
+      //   console.log(price);
+      // } else {
+      //   price = "NA";
+      // }
+
       return (
-        <div className="set_returned_div" key={card.setId}>
-          <h2 className="set_returned_name">{card.name}</h2>
-          <h3 className="set_returned_high_price">{"Highest sold Price "}</h3>
-          <h4 className="set_returned_series">{card.series}</h4>
-          <h5 className="set_returned_series">{card.set}</h5>
+        <div className=" card_returned_div" key={card.cardId}>
+          <h2 className="card_returned_name">{card.name}</h2>
+          <h3 className="card_returned_high_price">
+            {"Card Rarity: "}
+            {card.rarity}
+          </h3>
+          <h4 className="card_returned_type">{card.types[0]}</h4>
+          <h4 className="card_returned_series">{card.series}</h4>
+          <h5 className="card_returned_set">{card.set}</h5>
+          <h5 className="card_returned_last_sold">
+            {" "}
+            {"Last Sold: "}
+            {card.soldLastUpdatedAt}
+          </h5>
+          <h5 className="card_returned_last_sold_price">
+            {" "}
+            {"Last Sold Price: "}
+          </h5>
         </div>
       );
     });
   }
 
-  useEffect(() => {
-    card_call();
-  }, [getCards]);
-  console.log(cards[0]);
+  useEffect(
+    () => {
+      card_call();
+    },
+    [getCards],
+    2000
+  );
+  // console.log(cards[0]);
 
   return (
-    <div className="set_card">
-      <h2 className="set_card_heading">Pokemon Cards</h2>
-      <button className="set_card_button">GET POKEMON</button>
-      <div className="set_list">{show_cards}</div>
+    <div className="card_card">
+      <h2 className="card_card_heading">Pokemon Cards</h2>
+      <button className="card_card_button">GET POKEMON</button>
+      <div className="card_list">{show_cards}</div>
     </div>
   );
 }

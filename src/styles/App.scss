@@ -1,0 +1,34 @@
+@charset 'utf-8';
+
+html,
+body {
+  margin: 0;
+  font-family: "Roboto Condensed", sans-serif;
+  color: #323232;
+  height: 100vh;
+  box-sizing: border-box;
+  background: fixed;
+
+  a {
+    text-decoration: none;
+    color: #323232;
+  }
+}
+#root {
+  background-color: #fcfcfc;
+}
+
+/* Enforces border-box for whole site */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+.front__page-div-One {
+  height: 100px;
+  width: 100px;
+}
+.App {
+  background-color: #7ecaf6;
+}
+@import ".././styles/partials/card";

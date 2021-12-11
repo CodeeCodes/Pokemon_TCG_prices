@@ -7,7 +7,6 @@ export default function Multi_sets() {
   const set_options = {
     method: "GET",
     url: "https://pokemon-tcg-card-prices.p.rapidapi.com/set",
-    // params: { set: "vivid-voltage", series: "sword-and-shield", limit: "20" },
     headers: {
       "x-rapidapi-host": "pokemon-tcg-card-prices.p.rapidapi.com",
       "x-rapidapi-key": "52f19ac566msh98914ac4f41b70ap184c2fjsn7fb7b27edf87",
@@ -46,7 +45,7 @@ export default function Multi_sets() {
       set_call();
     },
     [getSets],
-    1000
+    2000
   );
 
   return (
