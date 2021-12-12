@@ -1,0 +1,20 @@
+.header {
+  &_link {
+    text-align: center;
+
+    &_div {
+      width: auto;
+      display: flex;
+      flex-wrap: wrap;
+
+      & a {
+        width: 50%;
+      }
+    }
+  }
+  &_name {
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+  }
+}

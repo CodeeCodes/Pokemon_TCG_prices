@@ -5,8 +5,8 @@ import "../styles/App.css";
 export default function MainContent() {
   return (
     <div className="main_content">
+      {/* <CARD_LIST /> */}
       {/* <SET_LIST /> */}
-      <CARD_LIST />
     </div>
   );
 }

@@ -25,8 +25,6 @@ export default function Multi_sets() {
       });
   };
 
-  // console.log(set[0]);
-
   let show_set;
   if (set.length > 0) {
     show_set = set[0].map(function (set) {
@@ -49,7 +47,7 @@ export default function Multi_sets() {
   );
 
   return (
-    <div className="set_card">
+    <div className="set_card_div">
       <h2 className="set_card_heading">Pokemon Sets</h2>
       <button className="set_card_button">GET POKEMON</button>
       <div className="set_list"> {show_set}</div>

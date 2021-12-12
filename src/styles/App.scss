@@ -8,6 +8,9 @@ body {
   height: 100vh;
   box-sizing: border-box;
   background: fixed;
+  background-image: url(../assets/photos/pokemon_background.jpeg);
+  background-repeat: no-repeat;
+  background-color: #7ecaf6;
 
   a {
     text-decoration: none;
@@ -29,6 +32,12 @@ body {
   width: 100px;
 }
 .App {
-  background-color: #7ecaf6;
+  // background-image: url(../assets/photos/pokemon_background2.jpeg);
+  background-repeat: no-repeat;
+  // background-color: #7ecaf6;
+  background-position: center;
+  background-size: cover;
 }
 @import ".././styles/partials/card";
+@import ".././styles/partials/sets";
+@import ".././styles/partials/header";
