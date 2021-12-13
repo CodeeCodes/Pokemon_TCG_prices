@@ -1,17 +1,35 @@
 .card {
+  text-align: center;
   &_returned {
     &_div {
-      background-image: url(../assets/photos/pokemon_image_back2.jpeg);
-      background-size: cover;
-      background-position: center;
-      width: 15%;
-      background-color: lightyellow;
-      height: 400px;
-      border-radius: 10px;
-      color: #000;
-      margin: 5px;
-      padding: 5px;
-      border: 10px solid darkblue;
+      &_back {
+        background-image: url(../assets/photos/pokemon_image_back2.jpeg);
+        background-size: cover;
+        background-position: center;
+        text-indent: 110%;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 17%;
+        background-color: lightyellow;
+        height: 400px;
+        border-radius: 10px;
+        color: #000;
+        margin: 5px;
+        padding: 5px;
+        border: 10px solid darkblue;
+      }
+      &_back:hover {
+        background-image: none;
+        text-indent: 0%;
+        width: 17%;
+        background-color: lightyellow;
+        height: 400px;
+        border-radius: 10px;
+        color: #000;
+        margin: 5px;
+        padding: 5px;
+        border: 10px solid darkblue;
+      }
     }
   }
   &_list {
@@ -20,8 +38,9 @@
     flex-wrap: wrap;
     flex-direction: row;
     text-align: center;
+    justify-content: space-evenly;
   }
   &_heading {
-    color: white;
+    color: #000;
   }
 }

@@ -1,6 +1,7 @@
 .set {
   &_card {
     &_div {
+      text-align: center;
     }
   }
   &_list {
@@ -8,10 +9,10 @@
     width: auto;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: space-evenly;
     border-radius: 10px;
     margin: 5px;
     padding: 5px;
-    border: 10px solid maroon;
   }
   &_returned {
     &_div {
@@ -24,6 +25,7 @@
       width: 46%;
       height: 400px;
       background-color: lightyellow;
+      text-align: center;
     }
   }
 }

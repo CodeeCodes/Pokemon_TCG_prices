@@ -4,7 +4,9 @@ import { NavLink } from "react-router-dom";
 export default function header() {
   return (
     <div className="header">
-      <h1 className="header_name">Pokemon TCG Prices</h1>
+      <NavLink to="/">
+        <h1 className="header_name">Pokemon TCG Prices</h1>
+      </NavLink>
       <div className="header_link_div">
         <NavLink to="/sets">
           <h2 className="header_link">SETS</h2>

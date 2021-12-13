@@ -30,8 +30,9 @@ export default function Multi_cards() {
       });
   };
 
-  let show_cards;
+  // console.log(cards);
 
+  let show_cards;
   if (cards && cards.length > 0) {
     show_cards = cards[0].map(function (card) {
       let price = card["highSoldPrice"];
@@ -40,7 +41,7 @@ export default function Multi_cards() {
         let price_unit = price.currencyCode;
 
         return (
-          <div className=" card_returned_div" key={card.cardId}>
+          <div className=" card_returned_div_back" key={card.cardId}>
             <h2 className="card_returned_name">{card.name}</h2>
             <h3 className="card_returned_high_price">
               {"Card Rarity: "}
@@ -49,7 +50,11 @@ export default function Multi_cards() {
             <h4 className="card_returned_type">{card.types[0]}</h4>
             <h4 className="card_returned_series">{card.series}</h4>
             <h5 className="card_returned_set">{card.set}</h5>
-            <h5 className="card_returned_last_sold"> {"Last Sold: "}</h5>
+            <h5 className="card_returned_last_sold">
+              {" "}
+              {"Last Sold: "}
+              {card.soldLastUpdatedAt}
+            </h5>
             <h5 className="card_returned_amount_sold">
               {" "}
               {"Amount Sold: "}
@@ -59,6 +64,7 @@ export default function Multi_cards() {
               {" "}
               {"Last Sold Price: "} {new_price} {price_unit}
             </h5>
+            {/* <div className="card_returned_div_front"></div> */}
           </div>
         );
       }

@@ -30,9 +30,9 @@ export default function Multi_sets() {
     show_set = set[0].map(function (set) {
       return (
         <div className="set_returned_div" key={set.setId}>
-          <h3 className="set_returned_name">{set.name}</h3>
-          <h4 className="set_returned_series">{set.series}</h4>
-          <h5 className="set_returned_series">{set.set}</h5>
+          <h1 className="set_returned_name">{set.name}</h1>
+          <h2 className="set_returned_series">{set.series}</h2>
+          <h3 className="set_returned_series">{set.set}</h3>
         </div>
       );
     });

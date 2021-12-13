@@ -41,11 +41,31 @@ body a {
   background-size: cover;
 }
 
-.card_returned_div {
+.card {
+  text-align: center;
+}
+
+.card_returned_div_back {
   background-image: url(../assets/photos/pokemon_image_back2.jpeg);
   background-size: cover;
   background-position: center;
-  width: 15%;
+  text-indent: 110%;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 17%;
+  background-color: lightyellow;
+  height: 400px;
+  border-radius: 10px;
+  color: #000;
+  margin: 5px;
+  padding: 5px;
+  border: 10px solid darkblue;
+}
+
+.card_returned_div_back:hover {
+  background-image: none;
+  text-indent: 0%;
+  width: 17%;
   background-color: lightyellow;
   height: 400px;
   border-radius: 10px;
@@ -67,10 +87,17 @@ body a {
       -ms-flex-direction: row;
           flex-direction: row;
   text-align: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .card_heading {
-  color: white;
+  color: #000;
+}
+
+.set_card_div {
+  text-align: center;
 }
 
 .set_list {
@@ -84,10 +111,12 @@ body a {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   border-radius: 10px;
   margin: 5px;
   padding: 5px;
-  border: 10px solid maroon;
 }
 
 .set_returned_div {
@@ -100,6 +129,7 @@ body a {
   width: 46%;
   height: 400px;
   background-color: lightyellow;
+  text-align: center;
 }
 
 .header_link {
