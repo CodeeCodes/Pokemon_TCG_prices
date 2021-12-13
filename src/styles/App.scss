@@ -8,9 +8,9 @@ body {
   height: 100vh;
   box-sizing: border-box;
   background: fixed;
-  background-image: url(../assets/photos/pokemon_background.jpeg);
+  // background-image: url(../assets/photos/pokemon_background.jpeg);
   background-repeat: no-repeat;
-  background-color: #7ecaf6;
+  background-color: #5555;
 
   a {
     text-decoration: none;
@@ -18,7 +18,7 @@ body {
   }
 }
 #root {
-  background-color: #fcfcfc;
+  background-color: #5555;
 }
 
 /* Enforces border-box for whole site */
@@ -41,3 +41,4 @@ body {
 @import ".././styles/partials/card";
 @import ".././styles/partials/sets";
 @import ".././styles/partials/header";
+@import ".././styles/partials/hero";

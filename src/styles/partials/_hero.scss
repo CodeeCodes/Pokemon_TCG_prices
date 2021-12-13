@@ -1,0 +1,11 @@
+.hero {
+  background-image: url(../assets/photos/pokemon_hero.jpeg);
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  &_image {
+    &_main {
+    }
+  }
+}

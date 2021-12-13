@@ -9,9 +9,9 @@
         text-indent: 110%;
         white-space: nowrap;
         overflow: hidden;
-        width: 17%;
+        width: 20%;
         background-color: lightyellow;
-        height: 400px;
+        height: 500px;
         border-radius: 10px;
         color: #000;
         margin: 5px;
@@ -21,9 +21,9 @@
       &_back:hover {
         background-image: none;
         text-indent: 0%;
-        width: 17%;
+        width: 20%;
         background-color: lightyellow;
-        height: 400px;
+        height: 500px;
         border-radius: 10px;
         color: #000;
         margin: 5px;
@@ -31,7 +31,36 @@
         border: 10px solid darkblue;
       }
     }
+    &_image {
+      width: 95%;
+      height: 320px;
+    }
+    &_name {
+      margin: 0;
+    }
+    &_high_price {
+      margin: 0;
+    }
+    &_type {
+      margin: 0;
+    }
+    &_series {
+      margin: 0;
+    }
+    &_set {
+      margin: 0;
+    }
+    &_last_sold {
+      margin: 0;
+      &_price {
+        margin: 0;
+      }
+    }
+    &_amount_sold {
+      margin: 0;
+    }
   }
+
   &_list {
     width: auto;
     display: flex;

@@ -7,9 +7,8 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background: fixed;
-  background-image: url(../assets/photos/pokemon_background.jpeg);
   background-repeat: no-repeat;
-  background-color: #7ecaf6;
+  background-color: #5555;
 }
 
 html a,
@@ -19,7 +18,7 @@ body a {
 }
 
 #root {
-  background-color: #fcfcfc;
+  background-color: #5555;
 }
 
 /* Enforces border-box for whole site */
@@ -52,9 +51,9 @@ body a {
   text-indent: 110%;
   white-space: nowrap;
   overflow: hidden;
-  width: 17%;
+  width: 20%;
   background-color: lightyellow;
-  height: 400px;
+  height: 500px;
   border-radius: 10px;
   color: #000;
   margin: 5px;
@@ -65,14 +64,51 @@ body a {
 .card_returned_div_back:hover {
   background-image: none;
   text-indent: 0%;
-  width: 17%;
+  width: 20%;
   background-color: lightyellow;
-  height: 400px;
+  height: 500px;
   border-radius: 10px;
   color: #000;
   margin: 5px;
   padding: 5px;
   border: 10px solid darkblue;
+}
+
+.card_returned_image {
+  width: 95%;
+  height: 320px;
+}
+
+.card_returned_name {
+  margin: 0;
+}
+
+.card_returned_high_price {
+  margin: 0;
+}
+
+.card_returned_type {
+  margin: 0;
+}
+
+.card_returned_series {
+  margin: 0;
+}
+
+.card_returned_set {
+  margin: 0;
+}
+
+.card_returned_last_sold {
+  margin: 0;
+}
+
+.card_returned_last_sold_price {
+  margin: 0;
+}
+
+.card_returned_amount_sold {
+  margin: 0;
 }
 
 .card_list {
@@ -120,7 +156,6 @@ body a {
 }
 
 .set_returned_div {
-  background-image: url(../assets/photos/set_image.jpeg);
   background-size: cover;
   background-position: center;
   margin: 15px;
@@ -130,6 +165,16 @@ body a {
   height: 400px;
   background-color: lightyellow;
   text-align: center;
+}
+
+.set_returned_image {
+  width: 60%;
+  height: 150px;
+}
+
+.set_returned_image_small {
+  width: auto;
+  height: 50px;
 }
 
 .header_link {
@@ -153,5 +198,13 @@ body a {
   text-align: center;
   margin: 0;
   padding: 5px;
+}
+
+.hero {
+  background-image: url(../assets/photos/pokemon_hero.jpeg);
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
 }
 /*# sourceMappingURL=App.css.map */

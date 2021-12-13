@@ -5,20 +5,18 @@ export default function Multi_sets() {
   const [set, getSets] = useState([]);
 
   const set_options = {
-    method: "GET",
-    url: "https://pokemon-tcg-card-prices.p.rapidapi.com/set",
+    host: "https://api.pokemontcg.io/v2/sets",
     headers: {
-      "x-rapidapi-host": "pokemon-tcg-card-prices.p.rapidapi.com",
-      "x-rapidapi-key": "52f19ac566msh98914ac4f41b70ap184c2fjsn7fb7b27edf87",
+      "X-Api-Key": "52f19ac566msh98914ac4f41b70ap184c2fjsn7fb7b27edf87",
     },
   };
 
   const set_call = async () => {
     await axios
-      .request(set_options)
+      .get(set_options.host)
       .then(function (response) {
-        console.log(response);
-        getSets([response.data.results]);
+        console.log(response.data.data);
+        getSets([response.data.data]);
       })
       .catch(function (error) {
         console.error(error);
@@ -29,10 +27,18 @@ export default function Multi_sets() {
   if (set.length > 0) {
     show_set = set[0].map(function (set) {
       return (
-        <div className="set_returned_div" key={set.setId}>
+        <div className="set_returned_div" key={set.id}>
+          <img className="set_returned_image" src={set.images.logo}></img>
           <h1 className="set_returned_name">{set.name}</h1>
           <h2 className="set_returned_series">{set.series}</h2>
-          <h3 className="set_returned_series">{set.set}</h3>
+          <h3 className="set_returned_release_date">
+            {"Released on: "}
+            {set.releaseDate}
+          </h3>
+          <img
+            className="set_returned_image_small"
+            src={set.images.symbol}
+          ></img>
         </div>
       );
     });
@@ -49,7 +55,7 @@ export default function Multi_sets() {
   return (
     <div className="set_card_div">
       <h2 className="set_card_heading">Pokemon Sets</h2>
-      <button className="set_card_button">GET POKEMON</button>
+      {/* <button className="set_card_button">GET POKEMON</button> */}
       <div className="set_list"> {show_set}</div>
     </div>
   );

@@ -5,64 +5,60 @@ export default function Multi_cards() {
   const [cards, getCards] = useState([]);
 
   const card_options = {
-    method: "GET",
-    url: "https://pokemon-tcg-card-prices.p.rapidapi.com/card",
-    params: {
-      setId: "33ee55f4-30d0-4900-850f-36a351fb9719",
-      set: "vivid-voltage",
-      series: "sword-and-shield",
-    },
+    host: "https://api.pokemontcg.io/v2/cards",
     headers: {
-      "x-rapidapi-host": "pokemon-tcg-card-prices.p.rapidapi.com",
-      "x-rapidapi-key": "52f19ac566msh98914ac4f41b70ap184c2fjsn7fb7b27edf87",
+      "X-Api-Key": "52f19ac566msh98914ac4f41b70ap184c2fjsn7fb7b27edf87",
     },
   };
 
   const card_call = async () => {
     await axios
-      .request(card_options)
+      .get(card_options.host)
       .then(function (response) {
-        console.log(response.status + " okaaay");
-        getCards([response.data.results]);
+        // console.log(response.data.data);
+        getCards([response.data.data]);
       })
       .catch(function (error) {
         console.error(error);
       });
   };
 
-  // console.log(cards);
+  // console.log(cards[0]);
 
   let show_cards;
   if (cards && cards.length > 0) {
     show_cards = cards[0].map(function (card) {
-      let price = card["highSoldPrice"];
-      if (price && price != null) {
-        let new_price = price.amountInMinorUnits;
-        let price_unit = price.currencyCode;
+      console.log(card);
+      let price = card.cardmarket;
+      if ((price && price != null) || undefined) {
+        let new_price = price.prices;
+        let average_price = new_price.averageSellPrice;
+        let card_image = card.images.small;
 
         return (
-          <div className=" card_returned_div_back" key={card.cardId}>
-            <h2 className="card_returned_name">{card.name}</h2>
-            <h3 className="card_returned_high_price">
+          <div className=" card_returned_div_back" key={card.id}>
+            <img className="card_returned_image" src={card_image}></img>
+            <h4 className="card_returned_name">{card.name}</h4>
+            <h4 className="card_returned_high_price">
               {"Card Rarity: "}
               {card.rarity}
-            </h3>
-            <h4 className="card_returned_type">{card.types[0]}</h4>
-            <h4 className="card_returned_series">{card.series}</h4>
-            <h5 className="card_returned_set">{card.set}</h5>
+            </h4>
+            <h5 className="card_returned_type">{card.types}</h5>
+            <h5 className="card_returned_series">{card.set.series}</h5>
+            <h5 className="card_returned_set">{card.set.name}</h5>
             <h5 className="card_returned_last_sold">
               {" "}
-              {"Last Sold: "}
-              {card.soldLastUpdatedAt}
+              {"Last Updated: "}
+              {card.tcgplayer.updatedAt}
             </h5>
             <h5 className="card_returned_amount_sold">
               {" "}
-              {"Amount Sold: "}
-              {card.soldVolume}
+              {"Amount on market: "}
+              {card.nationalPokedexNumbers}
             </h5>
             <h5 className="card_returned_last_sold_price">
               {" "}
-              {"Last Sold Price: "} {new_price} {price_unit}
+              {"Average Sold Price: "} {average_price}
             </h5>
             {/* <div className="card_returned_div_front"></div> */}
           </div>
@@ -71,18 +67,14 @@ export default function Multi_cards() {
     });
   }
 
-  useEffect(
-    () => {
-      card_call();
-    },
-    [getCards],
-    2000
-  );
+  useEffect(() => {
+    card_call();
+  }, [getCards]);
 
   return (
     <div className="card">
       <h2 className="card_heading">Pokemon Cards</h2>
-      <button className="card_button">GET POKEMON</button>
+      {/* <button className="card_button">GET POKEMON</button> */}
       <div className="card_list">{show_cards}</div>
     </div>
   );
