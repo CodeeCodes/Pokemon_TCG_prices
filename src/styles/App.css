@@ -207,4 +207,30 @@ body a {
   background-position: center;
   width: 100%;
 }
+
+.search {
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-align: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.search_main {
+  text-align: center;
+}
+
+.search_input {
+  width: 30%;
+  height: 50px;
+}
 /*# sourceMappingURL=App.css.map */

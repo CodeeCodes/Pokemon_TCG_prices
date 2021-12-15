@@ -1,0 +1,15 @@
+.search {
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-evenly;
+  &_main {
+    text-align: center;
+  }
+  &_input {
+    width: 30%;
+    height: 50px;
+  }
+}
