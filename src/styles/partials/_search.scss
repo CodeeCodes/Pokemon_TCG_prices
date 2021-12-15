@@ -5,11 +5,20 @@
   flex-direction: row;
   text-align: center;
   justify-content: space-evenly;
+  margin-top: 500px;
+  // background-color: #5555;
+
   &_main {
     text-align: center;
+    padding-top: 60px;
   }
   &_input {
     width: 30%;
     height: 50px;
+    background-color: rgb(163, 163, 163);
+    border-radius: 5px;
+  }
+  &_heading {
+    color: lightgray;
   }
 }

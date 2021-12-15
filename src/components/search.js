@@ -22,21 +22,17 @@ export default function Search() {
         console.error(error);
       });
   };
-  useEffect(
-    () => {
-      card_call();
-    },
-    [setCards],
-    1000
-  );
+  useEffect(() => {
+    card_call();
+  }, []);
 
   const Search = (key) => {
-    if (cards && cards.length > 0 && key != "") {
+    if (cards && cards.length > 0 && key !== "") {
       let new_cards = cards[0];
       const new_results = new_cards.filter((new_cards) =>
         new_cards.name.toUpperCase().includes(key.toUpperCase())
       );
-      console.log(new_results);
+      // console.log(new_results);
       getFoundCard([new_results]);
       console.log("new_results", new_results);
     }
@@ -44,7 +40,7 @@ export default function Search() {
   let show_cards;
   if (found && found.length > 0) {
     show_cards = found[0].map(function (card) {
-      console.log(found);
+      // console.log(found);
       let price = card.cardmarket;
       if ((price && price != null) || undefined) {
         let new_price = price.prices;
@@ -53,7 +49,11 @@ export default function Search() {
 
         return (
           <div className=" card_returned_div_back" key={card.id}>
-            <img className="card_returned_image" src={card_image}></img>
+            <img
+              className="card_returned_image"
+              src={card_image}
+              alt="for presentational card images"
+            ></img>
             <h4 className="card_returned_name">{card.name}</h4>
             <h4 className="card_returned_high_price">
               {"Card Rarity: "}
@@ -89,7 +89,7 @@ export default function Search() {
       <input
         className="search_input"
         type="text"
-        onClick={(event) => Search(event.target.value)}
+        onChange={(event) => Search(event.target.value)}
       />
       <div className="search">{show_cards}</div>
     </div>

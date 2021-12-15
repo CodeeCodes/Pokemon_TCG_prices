@@ -25,10 +25,14 @@ export default function Multi_sets() {
 
   let show_set;
   if (set.length > 0) {
-    show_set = set[0].map(function (set) {
+    show_set = set[0].map((set) => {
       return (
         <div className="set_returned_div" key={set.id}>
-          <img className="set_returned_image" src={set.images.logo}></img>
+          <img
+            className="set_returned_image"
+            src={set.images.logo}
+            alt="for presentational card images"
+          ></img>
           <h1 className="set_returned_name">{set.name}</h1>
           <h2 className="set_returned_series">{set.series}</h2>
           <h3 className="set_returned_release_date">
@@ -38,19 +42,16 @@ export default function Multi_sets() {
           <img
             className="set_returned_image_small"
             src={set.images.symbol}
+            alt="for presentational card images"
           ></img>
         </div>
       );
     });
   }
 
-  useEffect(
-    () => {
-      set_call();
-    },
-    [getSets],
-    2000
-  );
+  useEffect(() => {
+    set_call();
+  }, []);
 
   return (
     <div className="set_card_div">

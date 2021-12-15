@@ -23,21 +23,21 @@ export default function Multi_cards() {
       });
   };
 
-  // console.log(cards[0]);
-
   let show_cards;
   if (cards && cards.length > 0) {
-    show_cards = cards[0].map(function (card) {
-      console.log(card);
+    show_cards = cards[0].map((card) => {
       let price = card.cardmarket;
       if ((price && price != null) || undefined) {
         let new_price = price.prices;
         let average_price = new_price.averageSellPrice;
         let card_image = card.images.small;
-
         return (
           <div className=" card_returned_div_back" key={card.id}>
-            <img className="card_returned_image" src={card_image}></img>
+            <img
+              className="card_returned_image"
+              src={card_image}
+              alt="for presentational card images"
+            ></img>
             <h4 className="card_returned_name">{card.name}</h4>
             <h4 className="card_returned_high_price">
               {"Card Rarity: "}
@@ -60,7 +60,6 @@ export default function Multi_cards() {
               {" "}
               {"Average Sold Price: "} {average_price}
             </h5>
-            {/* <div className="card_returned_div_front"></div> */}
           </div>
         );
       }
@@ -69,12 +68,11 @@ export default function Multi_cards() {
 
   useEffect(() => {
     card_call();
-  }, [getCards]);
+  }, [getCards, card_call]);
 
   return (
     <div className="card">
       <h2 className="card_heading">Pokemon Cards</h2>
-      {/* <button className="card_button">GET POKEMON</button> */}
       <div className="card_list">{show_cards}</div>
     </div>
   );

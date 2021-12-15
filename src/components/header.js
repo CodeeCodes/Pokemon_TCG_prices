@@ -11,6 +11,9 @@ export default function header() {
         <NavLink to="/sets">
           <h2 className="header_link">SETS</h2>
         </NavLink>
+        <NavLink to="/search">
+          <h2 className="header_link">SEARCH</h2>
+        </NavLink>
         <NavLink to="/cards">
           <h2 className="header_link">CARDS</h2>
         </NavLink>

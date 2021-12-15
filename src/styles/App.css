@@ -8,17 +8,12 @@ body {
           box-sizing: border-box;
   background: fixed;
   background-repeat: no-repeat;
-  background-color: #5555;
 }
 
 html a,
 body a {
   text-decoration: none;
   color: #323232;
-}
-
-#root {
-  background-color: #5555;
 }
 
 /* Enforces border-box for whole site */
@@ -188,10 +183,12 @@ body a {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .header_link_div a {
-  width: 50%;
+  width: 30%;
 }
 
 .header_name {
@@ -205,6 +202,7 @@ body a {
   height: 600px;
   background-size: cover;
   background-position: center;
+  background-color: #5555;
   width: 100%;
 }
 
@@ -223,14 +221,22 @@ body a {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  margin-top: 500px;
 }
 
 .search_main {
   text-align: center;
+  padding-top: 60px;
 }
 
 .search_input {
   width: 30%;
   height: 50px;
+  background-color: #a3a3a3;
+  border-radius: 5px;
+}
+
+.search_heading {
+  color: lightgray;
 }
 /*# sourceMappingURL=App.css.map */
