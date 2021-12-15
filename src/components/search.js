@@ -48,35 +48,41 @@ export default function Search() {
         let card_image = card.images.small;
 
         return (
-          <div className=" card_returned_div_back" key={card.id}>
-            <img
-              className="card_returned_image"
-              src={card_image}
-              alt="for presentational card images"
-            ></img>
-            <h4 className="card_returned_name">{card.name}</h4>
-            <h4 className="card_returned_high_price">
-              {"Card Rarity: "}
-              {card.rarity}
-            </h4>
-            <h5 className="card_returned_type">{card.types}</h5>
-            <h5 className="card_returned_series">{card.set.series}</h5>
-            <h5 className="card_returned_set">{card.set.name}</h5>
-            <h5 className="card_returned_last_sold">
-              {" "}
-              {"Last Updated: "}
-              {card.tcgplayer.updatedAt}
-            </h5>
-            <h5 className="card_returned_amount_sold">
-              {" "}
-              {"Amount on market: "}
-              {card.nationalPokedexNumbers}
-            </h5>
-            <h5 className="card_returned_last_sold_price">
-              {" "}
-              {"Average Sold Price: "} {average_price}
-            </h5>
-            {/* <div className="card_returned_div_front"></div> */}
+          <div className="card" key={card.id}>
+            <div className=" card_returned_div_back">
+              <div className=" card_returned_div_back_image">
+                <img
+                  className="card_returned_image"
+                  src={card_image}
+                  alt="for presentational card images"
+                ></img>
+              </div>
+              <div className="card_returned_div_info">
+                {" "}
+                <h4 className="card_returned_name">{card.name}</h4>
+                <h4 className="card_returned_high_price">
+                  {"Card Rarity: "}
+                  {card.rarity}
+                </h4>
+                <h5 className="card_returned_type">{card.types}</h5>
+                <h5 className="card_returned_series">{card.set.series}</h5>
+                {/* <h5 className="card_returned_set">{card.set.name}</h5> */}
+                <h5 className="card_returned_last_sold">
+                  {" "}
+                  {"Last Updated: "}
+                  {card.tcgplayer.updatedAt}
+                </h5>
+                <h5 className="card_returned_amount_sold">
+                  {" "}
+                  {"Amount on market: "}
+                  {card.nationalPokedexNumbers}
+                </h5>
+                <h5 className="card_returned_last_sold_price">
+                  {" "}
+                  {"Average Sold Price: "} {average_price}
+                </h5>
+              </div>
+            </div>
           </div>
         );
       }

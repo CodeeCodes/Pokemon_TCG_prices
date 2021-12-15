@@ -21,10 +21,11 @@
       background-position: center;
       margin: 15px;
       padding: 5px;
-      border: 4px solid darkblue;
-      width: 46%;
+      border: 5px solid darkblue;
+      border-radius: 10px;
+      width: 30%;
       height: 400px;
-      background-color: lightyellow;
+      background-color: #f9dd6e;
       text-align: center;
     }
     &_image {
