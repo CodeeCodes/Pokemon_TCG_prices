@@ -31,7 +31,7 @@ export default function Search() {
   );
 
   const Search = (key) => {
-    if (cards && cards.length > 0) {
+    if (cards && cards.length > 0 && key != "") {
       let new_cards = cards[0];
       const new_results = new_cards.filter((new_cards) =>
         new_cards.name.toUpperCase().includes(key.toUpperCase())
@@ -44,6 +44,7 @@ export default function Search() {
   let show_cards;
   if (found && found.length > 0) {
     show_cards = found[0].map(function (card) {
+      console.log(found);
       let price = card.cardmarket;
       if ((price && price != null) || undefined) {
         let new_price = price.prices;
@@ -88,7 +89,7 @@ export default function Search() {
       <input
         className="search_input"
         type="text"
-        onChange={(event) => Search(event.target.value)}
+        onClick={(event) => Search(event.target.value)}
       />
       <div className="search">{show_cards}</div>
     </div>
