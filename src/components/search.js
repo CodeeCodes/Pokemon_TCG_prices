@@ -24,7 +24,7 @@ export default function Search() {
   };
   useEffect(() => {
     card_call();
-  }, []);
+  }, [card_call]);
 
   const Search = (key) => {
     if (cards && cards.length > 0 && key !== "") {
@@ -95,7 +95,10 @@ export default function Search() {
       <input
         className="search_input"
         type="text"
-        onChange={(event) => Search(event.target.value)}
+        onChange={(event) => {
+          event.preventDefault();
+          Search(event.target.value);
+        }}
       />
       <div className="search">{show_cards}</div>
     </div>

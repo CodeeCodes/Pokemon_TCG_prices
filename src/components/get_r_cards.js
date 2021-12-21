@@ -2,31 +2,46 @@ import React, { useState, useEffect } from "react";
 let axios = require("axios").default;
 
 export default function Multi_cards() {
-  const [cards, getCards] = useState([]);
+  const [cards_2, getCards2] = useState([]);
+  const [isFetching, getIsfetching] = useState([false]);
+  let page = 1;
 
   const card_options = {
-    host: "https://api.pokemontcg.io/v2/cards",
-    headers: {
-      "X-Api-Key": "52f19ac566msh98914ac4f41b70ap184c2fjsn7fb7b27edf87",
-    },
+    headers: "X-Api-Key= 52f19ac566msh98914ac4f41b70ap184c2fjsn7fb7b27edf87",
   };
 
   const card_call = async () => {
     await axios
-      .get(card_options.host)
+      .get(
+        `https://api.pokemontcg.io/v2/cards?pageSize=10&page=${page}?`,
+        card_options.headers
+      )
       .then(function (response) {
         // console.log(response.data.data);
-        getCards([response.data.data]);
+        const new_pokemon = [response];
+        getCards2([...new_pokemon, new_pokemon]);
       })
       .catch(function (error) {
         console.error(error);
       });
+    page++;
   };
 
+  function handleScroll(e) {
+    e.preventDefault();
+    if (
+      window.innerHeight + e.target.documentElement.scrollTop + 1 >=
+      e.target.documentElement.scrollHeight
+    ) {
+      card_call();
+      getIsfetching(true);
+    }
+  }
+
   let show_cards;
-  if (cards && cards.length > 0) {
-    show_cards = cards[0].map(function (card) {
-      // console.log(found);
+  if (cards_2 && cards_2.length > 0) {
+    let m_cards = cards_2[0].data.data;
+    show_cards = m_cards.map(function (card) {
       let price = card.cardmarket;
       if ((price && price != null) || undefined) {
         let new_price = price.prices;
@@ -77,12 +92,16 @@ export default function Multi_cards() {
 
   useEffect(() => {
     card_call();
-  }, [getCards, card_call]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="card">
       <h2 className="card_heading">Pokemon Cards</h2>
       <div className="card_list">{show_cards}</div>
+
+      {isFetching ?? "Fetching more list items..."}
     </div>
   );
 }
