@@ -24,7 +24,7 @@ export default function Search() {
   };
   useEffect(() => {
     card_call();
-  }, [card_call]);
+  }, []);
 
   const Search = (key) => {
     if (cards && cards.length > 0 && key !== "") {

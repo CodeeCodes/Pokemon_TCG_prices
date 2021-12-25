@@ -83,6 +83,7 @@ body a {
   background-color: #f9dd6e;
   -webkit-box-shadow: 5px 10px 18px #888888;
           box-shadow: 5px 10px 18px #888888;
+  border: 3px solid maroon;
 }
 
 .card_returned_image {
@@ -240,12 +241,12 @@ body a {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  margin-top: 500px;
+  margin-top: 50px;
 }
 
 .search_main {
   text-align: center;
-  padding-top: 60px;
+  padding-top: 435px;
 }
 
 .search_input {

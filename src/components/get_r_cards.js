@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 let axios = require("axios").default;
 
 export default function Multi_cards() {
-  const [cards_2, getCards2] = useState([]);
+  const [cards_2, getCards2] = useState({});
   const [isFetching, getIsfetching] = useState([false]);
   let page = 1;
 
@@ -18,8 +18,8 @@ export default function Multi_cards() {
       )
       .then(function (response) {
         // console.log(response.data.data);
-        const new_pokemon = [response];
-        getCards2([...new_pokemon, new_pokemon]);
+        const new_pokemon = [response.data.data];
+        getCards2(...new_pokemon, new_pokemon);
       })
       .catch(function (error) {
         console.error(error);
@@ -40,7 +40,8 @@ export default function Multi_cards() {
 
   let show_cards;
   if (cards_2 && cards_2.length > 0) {
-    let m_cards = cards_2[0].data.data;
+    // console.log(cards_2);
+    let m_cards = cards_2;
     show_cards = m_cards.map(function (card) {
       let price = card.cardmarket;
       if ((price && price != null) || undefined) {
@@ -101,7 +102,7 @@ export default function Multi_cards() {
       <h2 className="card_heading">Pokemon Cards</h2>
       <div className="card_list">{show_cards}</div>
 
-      {isFetching ?? "Fetching more list items..."}
+      {"Fetching more list items..."}
     </div>
   );
 }
