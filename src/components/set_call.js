@@ -6,14 +6,12 @@ export default function Multi_sets() {
 
   const set_options = {
     host: "https://api.pokemontcg.io/v2/sets",
-    headers: {
-      "X-Api-Key": "52f19ac566msh98914ac4f41b70ap184c2fjsn7fb7b27edf87",
-    },
+    headers: process.env.POKEMON_APP_API_KEY,
   };
 
   const set_call = async () => {
     await axios
-      .get(set_options.host)
+      .get(set_options.host, set_options.headers)
       .then(function (response) {
         console.log(response.data.data);
         getSets([response.data.data]);

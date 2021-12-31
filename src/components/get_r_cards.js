@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 let axios = require("axios").default;
 
 export default function Multi_cards() {
-  const [cards_2, getCards2] = useState();
+  const [cards_2, getCards2] = useState([]);
   const [isFetching, getIsfetching] = useState([false]);
   let page = 1;
 
   const card_options = {
-    headers: "X-Api-Key= 52f19ac566msh98914ac4f41b70ap184c2fjsn7fb7b27edf87",
+    headers: process.env.POKEMON_APP_API_KEY,
   };
 
   const card_call = async () => {
@@ -18,7 +18,7 @@ export default function Multi_cards() {
       )
       .then(function (response) {
         const new_pokemon = [response.data.data];
-        getCards2(...new_pokemon, cards_2);
+        getCards2(...new_pokemon, ...cards_2);
       })
       .catch(function (error) {
         console.error(error);
@@ -29,7 +29,7 @@ export default function Multi_cards() {
   function handleScroll(e) {
     e.preventDefault();
     if (
-      window.innerHeight + e.target.documentElement.scrollTop + 1 >=
+      window.innerHeight + e.target.documentElement.scrollTop + 1 ==
       e.target.documentElement.scrollHeight
     ) {
       card_call();
@@ -95,6 +95,7 @@ export default function Multi_cards() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   console.log(cards_2);
 
   return (

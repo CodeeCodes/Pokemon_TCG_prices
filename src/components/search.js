@@ -6,14 +6,12 @@ export default function Search() {
   const [found, getFoundCard] = useState([]);
   const card_options = {
     host: "https://api.pokemontcg.io/v2/cards",
-    headers: {
-      "X-Api-Key": "52f19ac566msh98914ac4f41b70ap184c2fjsn7fb7b27edf87",
-    },
+    headers: process.env.POKEMON_APP_API_KEY,
   };
 
   const card_call = async () => {
     await axios
-      .get(card_options.host)
+      .get(card_options.host, card_options.headers)
       .then(function (response) {
         // console.log(response.data.data);
         setCards([response.data.data]);
