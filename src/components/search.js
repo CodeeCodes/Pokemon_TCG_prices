@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 let axios = require("axios").default;
+// let dot = require("dotenv").config();
+const process = require("process");
 
 export default function Search() {
   const [cards, setCards] = useState([]);
   const [found, getFoundCard] = useState([]);
   const card_options = {
     host: "https://api.pokemontcg.io/v2/cards",
-    headers: process.env.POKEMON_APP_API_KEY,
+    // headers: process.env.POKEMON_APP_API_KEY,
   };
-
+  console.log(process);
   const card_call = async () => {
     await axios
       .get(card_options.host, card_options.headers)
