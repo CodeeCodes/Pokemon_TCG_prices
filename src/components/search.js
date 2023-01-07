@@ -26,6 +26,7 @@ export default function Search() {
     card_call();
   }, []);
 
+  //Search Function
   const Search = (key) => {
     if (cards && cards.length > 0 && key !== "") {
       let new_cards = cards[0];
@@ -39,7 +40,7 @@ export default function Search() {
   };
   let show_cards;
   if (found && found.length > 0) {
-    show_cards = found[0].map(function (card) {
+    show_cards = found[0].map((card) => {
       // console.log(found);
       let price = card.cardmarket;
       if ((price && price != null) || undefined) {

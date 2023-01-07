@@ -29,7 +29,7 @@ export default function Multi_cards() {
   function handleScroll(e) {
     e.preventDefault();
     if (
-      window.innerHeight + e.target.documentElement.scrollTop + 1 ==
+      window.innerHeight + e.target.documentElement.scrollTop + 1 ===
       e.target.documentElement.scrollHeight
     ) {
       card_call();
@@ -40,7 +40,7 @@ export default function Multi_cards() {
   let show_cards;
   if (cards_2 && cards_2.length > 0) {
     let m_cards = cards_2;
-    show_cards = m_cards.map(function (card) {
+    show_cards = m_cards.map((card) =>{
       let price = card.cardmarket;
       if ((price && price != null) || undefined) {
         let new_price = price.prices;
