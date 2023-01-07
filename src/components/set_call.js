@@ -9,11 +9,13 @@ export default function Multi_sets() {
     headers: process.env.POKEMON_APP_API_KEY,
   };
 
+  //async api call for card sets
+
   const set_call = async () => {
     await axios
       .get(set_options.host, set_options.headers)
       .then(function (response) {
-        console.log(response.data.data);
+        // console.log(response.data.data);
         getSets([response.data.data]);
       })
       .catch(function (error) {
@@ -21,6 +23,7 @@ export default function Multi_sets() {
       });
   };
 
+  //
   let show_set;
   if (set.length > 0) {
     show_set = set[0].map((set) => {
@@ -51,6 +54,7 @@ export default function Multi_sets() {
     set_call();
   }, []);
 
+  // What is returned to the webpage 
   return (
     <div className="set_card_div">
       <h2 className="set_card_heading">Pokemon Sets</h2>

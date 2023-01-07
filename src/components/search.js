@@ -10,8 +10,8 @@ export default function Search() {
     host: "https://api.pokemontcg.io/v2/cards",
     // headers: process.env.POKEMON_APP_API_KEY,
   };
-  console.log(process);
-  const card_call = async () => {
+  //console.log(process);
+  async function card_call() {
     await axios
       .get(card_options.host, card_options.headers)
       .then(function (response) {
@@ -21,7 +21,7 @@ export default function Search() {
       .catch(function (error) {
         console.error(error);
       });
-  };
+  }
   useEffect(() => {
     card_call();
   }, []);
